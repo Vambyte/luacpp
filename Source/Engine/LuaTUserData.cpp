@@ -26,21 +26,28 @@
 
 #include "LuaTUserData.hpp"
 
+#include <string>
+
 using namespace LuaCpp::Engine;
 
-int LuaTUserData::getTypeId() const {
+int LuaTUserData::getTypeId() const
+{
 	return LUA_TUSERDATA;
 }
 
-std::string LuaTUserData::getTypeName(LuaState &L) const {
+std::string LuaTUserData::getTypeName(LuaState& L) const
+{
 	return std::string(lua_typename(L, LUA_TUSERDATA));
 }
 
-void LuaTUserData::PushValue(LuaState &L) {
+void LuaTUserData::PushValue(LuaState& L)
+{
 	userdata = lua_newuserdata(L, size);
-	if (metatable.size() > 0) {
+	if (metatable.size() > 0)
+	{
 		lua_newtable(L);
-		for (const auto &pairs: metatable) {
+		for (const auto& pairs : metatable)
+		{
 			lua_pushcfunction(L, pairs.second);
 			lua_setfield(L, -2, pairs.first.c_str());
 		}
@@ -49,33 +56,46 @@ void LuaTUserData::PushValue(LuaState &L) {
 	_storeData();
 }
 
-void LuaTUserData::PopValue(LuaState &L, int idx) {
-	if (lua_type(L, idx) == LUA_TUSERDATA) {
-		void * _userdata = lua_touserdata(L, idx);
-		if (_userdata == userdata) {
+void LuaTUserData::PopValue(LuaState& L, int idx)
+{
+	if (lua_type(L, idx) == LUA_TUSERDATA)
+	{
+		void* _userdata = lua_touserdata(L, idx);
+		if (_userdata == userdata)
+		{
 			_retreiveData();
-		} else {
-			throw std::domain_error("The value on the stack "+std::to_string(idx)+" has different pointer to  the userdata buffer.");
 		}
-	} else {
+		else
+		{
+			throw std::domain_error(
+				"The value on the stack " + std::to_string(idx) + " has different pointer to  the userdata buffer.");
+		}
+	}
+	else
+	{
 		throw std::invalid_argument("The value at the stack position " + std::to_string(idx) + " is not LUA_TNUMBER");
 	}
 }
 
-std::string LuaTUserData::ToString() const {
+std::string LuaTUserData::ToString() const
+{
 	return "userdata";
 }
 
-void LuaTUserData::_storeData() {
+void LuaTUserData::_storeData()
+{
 }
 
-void LuaTUserData::_retreiveData() {
+void LuaTUserData::_retreiveData()
+{
 }
 
-void* LuaTUserData::getRawUserData() const {
+void* LuaTUserData::getRawUserData() const
+{
 	return userdata;
 }
 
-void LuaTUserData::AddMetaFunction(std::string fname, lua_CFunction fn) {
+void LuaTUserData::AddMetaFunction(std::string fname, lua_CFunction fn)
+{
 	metatable[fname] = fn;
 }

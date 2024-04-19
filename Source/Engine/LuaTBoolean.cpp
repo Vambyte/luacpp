@@ -24,41 +24,55 @@
 
 #include "LuaTBoolean.hpp"
 
+#include <string>
+
 using namespace LuaCpp::Engine;
 
-int LuaTBoolean::getTypeId() const {
+int LuaTBoolean::getTypeId() const
+{
 	return LUA_TBOOLEAN;
 }
 
-std::string LuaTBoolean::getTypeName(LuaState &L) const {
+std::string LuaTBoolean::getTypeName(LuaState& L) const
+{
 	return std::string(lua_typename(L, LUA_TBOOLEAN));
 }
 
-void LuaTBoolean::PushValue(LuaState &L) {
+void LuaTBoolean::PushValue(LuaState& L)
+{
 	lua_pushboolean(L, value);
 }
 
-void LuaTBoolean::PopValue(LuaState &L, int idx) {
-	if (lua_type(L, idx) == LUA_TBOOLEAN) {
-		value = lua_toboolean(L,idx);
-	} else {
+void LuaTBoolean::PopValue(LuaState& L, int idx)
+{
+	if (lua_type(L, idx) == LUA_TBOOLEAN)
+	{
+		value = lua_toboolean(L, idx);
+	}
+	else
+	{
 		throw std::invalid_argument("The value at the stack position " + std::to_string(idx) + " is not LUA_TBOOLEAN");
 	}
 }
 
-std::string LuaTBoolean::ToString() const {
-	if (value) {
+std::string LuaTBoolean::ToString() const
+{
+	if (value)
+	{
 		return "true";
-	} else {
+	}
+	else
+	{
 		return "false";
 	}
 }
 
-bool LuaTBoolean::getValue() const {
+bool LuaTBoolean::getValue() const
+{
 	return value;
 }
 
-void LuaTBoolean::setValue(bool _value) {
+void LuaTBoolean::setValue(bool _value)
+{
 	value = _value;
 }
-

@@ -24,36 +24,48 @@
 
 #include "LuaTString.hpp"
 
+#include <string>
+
 using namespace LuaCpp::Engine;
 
-int LuaTString::getTypeId() const {
+int LuaTString::getTypeId() const
+{
 	return LUA_TSTRING;
 }
 
-std::string LuaTString::getTypeName(LuaState &L) const {
+std::string LuaTString::getTypeName(LuaState& L) const
+{
 	return std::string(lua_typename(L, LUA_TSTRING));
 }
 
-void LuaTString::PushValue(LuaState &L) {
+void LuaTString::PushValue(LuaState& L)
+{
 	lua_pushstring(L, value.c_str());
 }
 
-void LuaTString::PopValue(LuaState &L, int idx) {
-	if (lua_type(L, idx) == LUA_TSTRING) {
-		value = std::move(std::string(lua_tostring(L,idx)));
-	} else {
+void LuaTString::PopValue(LuaState& L, int idx)
+{
+	if (lua_type(L, idx) == LUA_TSTRING)
+	{
+		value = std::move(std::string(lua_tostring(L, idx)));
+	}
+	else
+	{
 		throw std::invalid_argument("The value at the stack position " + std::to_string(idx) + " is not LUA_TSTRING");
 	}
 }
 
-std::string LuaTString::ToString() const {
+std::string LuaTString::ToString() const
+{
 	return value;
 }
 
-std::string LuaTString::getValue() const {
+std::string LuaTString::getValue() const
+{
 	return value;
 }
 
-void LuaTString::setValue(std::string _value) {
+void LuaTString::setValue(std::string _value)
+{
 	value = std::move(_value);
 }

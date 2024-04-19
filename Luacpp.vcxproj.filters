@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Registry">
+      <UniqueIdentifier>{1EE4737F-0AB1-CE8A-33CA-BC321FF60319}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Engine\LuaState.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTBoolean.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTNil.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTNumber.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTString.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTTable.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaTUserData.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\LuaType.hpp">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Lua.hpp" />
+    <ClInclude Include="Source\LuaContext.hpp" />
+    <ClInclude Include="Source\LuaCpp.hpp" />
+    <ClInclude Include="Source\LuaMetaObject.hpp" />
+    <ClInclude Include="Source\LuaVersion.hpp" />
+    <ClInclude Include="Source\Registry\LuaCFunction.hpp">
+      <Filter>Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Registry\LuaCodeSnippet.hpp">
+      <Filter>Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Registry\LuaCompiler.hpp">
+      <Filter>Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Registry\LuaLibrary.hpp">
+      <Filter>Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Registry\LuaRegistry.hpp">
+      <Filter>Registry</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Engine\LuaState.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTBoolean.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTNil.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTNumber.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTString.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTTable.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaTUserData.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Engine\LuaType.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LuaContext.cpp" />
+    <ClCompile Include="Source\LuaMetaObject.cpp" />
+    <ClCompile Include="Source\LuaVersion.cpp" />
+    <ClCompile Include="Source\Registry\LuaCFunction.cpp">
+      <Filter>Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Registry\LuaCodeSnippet.cpp">
+      <Filter>Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Registry\LuaCompiler.cpp">
+      <Filter>Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Registry\LuaLibrary.cpp">
+      <Filter>Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Registry\LuaRegistry.cpp">
+      <Filter>Registry</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

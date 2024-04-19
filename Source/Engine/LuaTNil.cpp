@@ -24,26 +24,34 @@
 
 #include "LuaTNil.hpp"
 
+#include <string>
+
 using namespace LuaCpp::Engine;
 
-int LuaTNil::getTypeId() const {
+int LuaTNil::getTypeId() const
+{
 	return LUA_TNIL;
 }
 
-std::string LuaTNil::getTypeName(LuaState &L) const {
+std::string LuaTNil::getTypeName(LuaState& L) const
+{
 	return std::string(lua_typename(L, LUA_TNIL));
 }
 
-void LuaTNil::PushValue(LuaState &L) {
+void LuaTNil::PushValue(LuaState& L)
+{
 	lua_pushnil(L);
 }
 
-void LuaTNil::PopValue(LuaState &L, int idx) {
-	if (!lua_type(L, idx) == LUA_TNIL) {
+void LuaTNil::PopValue(LuaState& L, int idx)
+{
+	if (!lua_type(L, idx) == LUA_TNIL)
+	{
 		throw std::invalid_argument("The value at the stack position " + std::to_string(idx) + " is not LUA_TNUMBER");
 	}
 }
 
-std::string LuaTNil::ToString() const {
+std::string LuaTNil::ToString() const
+{
 	return "nil";
 }

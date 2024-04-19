@@ -33,3 +33,12 @@ debug
 *.exe
 *.out
 *.app
+
+# VS Proj files
+*.vcxproj
+*.vcxproj.filter
+*.vcxproj.user
+
+# Out
+bin-int/
+bin/

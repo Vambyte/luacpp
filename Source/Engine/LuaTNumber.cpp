@@ -24,36 +24,48 @@
 
 #include "LuaTNumber.hpp"
 
+#include <string>
+
 using namespace LuaCpp::Engine;
 
-int LuaTNumber::getTypeId() const {
+int LuaTNumber::getTypeId() const
+{
 	return LUA_TNUMBER;
 }
 
-std::string LuaTNumber::getTypeName(LuaState &L) const {
+std::string LuaTNumber::getTypeName(LuaState& L) const
+{
 	return std::string(lua_typename(L, LUA_TNUMBER));
 }
 
-void LuaTNumber::PushValue(LuaState &L) {
+void LuaTNumber::PushValue(LuaState& L)
+{
 	lua_pushnumber(L, value);
 }
 
-void LuaTNumber::PopValue(LuaState &L, int idx) {
-	if (lua_type(L, idx) == LUA_TNUMBER) {
-		value = lua_tonumber(L,idx);
-	} else {
+void LuaTNumber::PopValue(LuaState& L, int idx)
+{
+	if (lua_type(L, idx) == LUA_TNUMBER)
+	{
+		value = lua_tonumber(L, idx);
+	}
+	else
+	{
 		throw std::invalid_argument("The value at the stack position " + std::to_string(idx) + " is not LUA_TNUMBER");
 	}
 }
 
-std::string LuaTNumber::ToString() const {
+std::string LuaTNumber::ToString() const
+{
 	return std::to_string(value);
 }
 
-double LuaTNumber::getValue() const {
+double LuaTNumber::getValue() const
+{
 	return value;
 }
 
-void LuaTNumber::setValue(double _value) {
+void LuaTNumber::setValue(double _value)
+{
 	value = _value;
 }
